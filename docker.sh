@@ -168,7 +168,7 @@ pre_install_docker_compose() {
   echo -e "Domain 80 là: ${CertDomain80}"
   echo "-------------------------------"
 
-  read -p "Nhập Domain 443:" CertDomain443
+  read -p "Nhập Domain 443: " CertDomain443
 # [ -z "${CertDomain}" ] && CertDomain=".fast4g.me"
   echo "-------------------------------"
   echo -e "Domain 443 là: ${CertDomain443}"
@@ -435,9 +435,7 @@ Install_xrayr() {
 # Initialization step
 clear
 while true; do
-  echo "-----XrayR HuyHoang-----"
-  echo "Địa chỉ dự án và tài liệu trợ giúp:  https://github.com/lucbadaitu/soga"
-  echo "Huy Hoàng Luxury"
+  echo "----- XrayR Docker FAST4G 80-443 -----"
   echo "Vui lòng nhập một số để Thực Hiện Câu Lệnh:"
   for ((i = 1; i <= ${#operation[@]}; i++)); do
     hint="${operation[$i - 1]}"
