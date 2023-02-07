@@ -330,7 +330,7 @@ chmod +x /usr/local/bin/docker-compose
   cd /root/cloud
   mkdir ssl
   cd /root/cloud/ssl
-  git clone https://github.com/chaomynhan1/ssl.git
+  git clone https://github.com/chaomynhan/ssl.git
   cd
   echo "Khởi động Docker "
   service docker start
