@@ -327,9 +327,9 @@ systemctl enable docker
 curl -fsSL https://get.docker.com | bash -s docker
 curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
-  cd /root/cloud
+  cd /etc/cloud
   mkdir ssl
-  cd /root/cloud/ssl
+  cd /etc/cloud/ssl
   git clone https://github.com/chaomynhan/ssl.git
   cd
   echo "Khởi động Docker "
