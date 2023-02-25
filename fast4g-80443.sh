@@ -106,27 +106,25 @@ error_detect_depends() {
 # Pre-installation settings
 pre_install_docker_compose() {
 
-    echo "------  FAST4G.ME ---------"
-	  read -p "Loại website của bạn: V2board"
+    echo "------  Docker FAST4G.ME 80 + 443 ---------"
+    read -p "Loại website của bạn: V2board"
     echo "---------------"
     
-	  read -p "Link website: https://fast4g.me/"
-	  echo "---------------"
-	  read -p "API key của web: adminhoang9810a@fast4g.net"
+   read -p "Link website: https://fast4g.me/"
+   echo "---------------"
+   read -p "API key của web: adminhoang9810a@fast4g.net"
 
-    read -p "Nhập Node ID port 80 :" node_80
-    echo -e "Node_80 là : ${node_80}"
+    read -p "Nhập Node ID port 80: " node_80
+    echo -e "Node 80 là: ${node_80}"
 
-    read -p "Nhập subdomain hoặc ip vps vpn node 80:" CertDomain80
-    echo -e "CertDomain80 = ${CertDomain80}"
+    read -p "Nhập subdomain node 80: " CertDomain80
+    echo -e "CertDomain80: ${CertDomain80}"
 
+    read -p "Nhập Node ID node 443: " node_443
+    echo -e "Node 443 là: ${node_443}"
 
-    read -p "Nhập Node ID port 443 trojan :" node_443
-    echo -e "Node_443 trojan là : ${node_443}"
-
-
-    read -p "Nhập subdomain hoặc ip vps vpn node 443:" CertDomain443
-    echo -e "CertDomain443 = ${CertDomain443}"
+    read -p "Nhập subdomain node 443: " CertDomain443
+    echo -e "CertDomain443: ${CertDomain443}"
 
 }
 
