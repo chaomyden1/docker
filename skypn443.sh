@@ -105,8 +105,7 @@ error_detect_depends() {
 
 # Pre-installation settings
 pre_install_docker_compose() {
-
-    echo -e "--- Docker port 443 FAST4G.ME ---"
+   echo -e "--- Docker port 443 FAST4G.ME ---"
     echo -e "Vui lòng nhập ID node và Domain"
 
     read -p "Nhập Node ID port 443: " node_443
@@ -114,7 +113,6 @@ pre_install_docker_compose() {
 
     read -p "Nhập subdomain: " CertDomain443
     echo -e "CertDomain port 443 là: ${CertDomain}"
-
 }
 
 # Config docker
@@ -129,13 +127,10 @@ services:
   xrayr: 
     image: ghcr.io/xrayr-project/xrayr:latest
     volumes:
-      - ./config.yml:/etc/XrayR/config.yml
-      - ./dns.json:/etc/XrayR/dns.json
-      - ./crt.crt:/etc/XrayR/crt.crt
-      - ./key.key:/etc/XrayR/key.key
+      - ./config.yml:/etc/XrayR/config.yml # thư mục cấu hình bản đồ
+      - ./dns.json:/etc/XrayR/dns.json 
     restart: always
     network_mode: host
-    
 EOF
   cat >dns.json <<EOF
 {
@@ -146,58 +141,6 @@ EOF
     ],
     "tag": "dns_inbound"
 }
-EOF
-  cat >key.key <<EOF
-  -----BEGIN CERTIFICATE-----
-MIIEFTCCAv2gAwIBAgIUYXu2jpmNEGVcctbXjvyUpdNvphgwDQYJKoZIhvcNAQEL
-BQAwgagxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQH
-Ew1TYW4gRnJhbmNpc2NvMRkwFwYDVQQKExBDbG91ZGZsYXJlLCBJbmMuMRswGQYD
-VQQLExJ3d3cuY2xvdWRmbGFyZS5jb20xNDAyBgNVBAMTK01hbmFnZWQgQ0EgOTY3
-OTRhODViYTc4ZDg2YWRlOTVhMjk3Y2E3NjIxYmYwHhcNMjIxMTA3MTgyMTAwWhcN
-MzIxMTA0MTgyMTAwWjAiMQswCQYDVQQGEwJVUzETMBEGA1UEAxMKQ2xvdWRmbGFy
-ZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOkk3FFnedoph+ZBi60J
-lzv1tCYJ7+X8aQSjmMKd7BruV/fnZzkb8ljGe7GDK5olg7dV7dzBQb+3SHtH0Fv+
-h+z80yIqCvSmOs7uQ9DB7A/Uj6Nbm5fXZoYXuXLoQ27qO9ntwKxswSO/Xnrx2Xg/
-wZsn/wcqPkX0y5fOKJzdMrtVcn9uuFidpu5viLu4FTfOjrx6O4MC/F/HydlVftoS
-tI2tYe55brFYFepbByqvwptGGIoP5VPivZQB9p559DRV8DrDJXysH/3z4pdXzgqx
-te3SqiT+iVQM3RyKCGgYE6Lhu2HqflcsC8klYasBUgqusMAYmUTJYK8skFaPQJGH
-2BMCAwEAAaOBuzCBuDATBgNVHSUEDDAKBggrBgEFBQcDAjAMBgNVHRMBAf8EAjAA
-MB0GA1UdDgQWBBR6KODaGLR50ubUFwCeb5lp89zxzjAfBgNVHSMEGDAWgBT2V+XX
-VnAarstbUHhH5ghkeISzdjBTBgNVHR8ETDBKMEigRqBEhkJodHRwOi8vY3JsLmNs
-b3VkZmxhcmUuY29tL2Q4NmUwY2RmLWE1MDctNGFjYi1iNzkwLTE4NjhlN2I4MDc5
-ZS5jcmwwDQYJKoZIhvcNAQELBQADggEBAJm7cDv/r0EU7t9VmTcF/5QVrfvth8c6
-eWt5GB06A+ncie7v23q4ICwhwWagKrM+/PSyUdDJpne9VHU4XueP6dU0lBQ3WlgG
-YelMw3WgGNhhFTdURsF1oKkVM1UdasWXrTLY1kinqCFEd3hx2OmEpMDufoZFYt0s
-bP66sMynmyDYPG1svUZM4y4F1e1lSxS4+UgeCDsCgYN2Av51VBkPHudS50Atr98N
-7cnvUOWpGW5guC2qC7OHAb1WO+68naMEii/aK4PKhQ8MoGIa8te44zwPU0Y35bMH
-+GV3UK+VySIphAySjc5Joco2VWZUONGqMMVgFpbZQJZ1uojNb+fN210=
------END CERTIFICATE-----
-EOF
-  cat >crt.crt <<EOF
------BEGIN CERTIFICATE-----
-MIIEFTCCAv2gAwIBAgIUYXu2jpmNEGVcctbXjvyUpdNvphgwDQYJKoZIhvcNAQEL
-BQAwgagxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQH
-Ew1TYW4gRnJhbmNpc2NvMRkwFwYDVQQKExBDbG91ZGZsYXJlLCBJbmMuMRswGQYD
-VQQLExJ3d3cuY2xvdWRmbGFyZS5jb20xNDAyBgNVBAMTK01hbmFnZWQgQ0EgOTY3
-OTRhODViYTc4ZDg2YWRlOTVhMjk3Y2E3NjIxYmYwHhcNMjIxMTA3MTgyMTAwWhcN
-MzIxMTA0MTgyMTAwWjAiMQswCQYDVQQGEwJVUzETMBEGA1UEAxMKQ2xvdWRmbGFy
-ZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOkk3FFnedoph+ZBi60J
-lzv1tCYJ7+X8aQSjmMKd7BruV/fnZzkb8ljGe7GDK5olg7dV7dzBQb+3SHtH0Fv+
-h+z80yIqCvSmOs7uQ9DB7A/Uj6Nbm5fXZoYXuXLoQ27qO9ntwKxswSO/Xnrx2Xg/
-wZsn/wcqPkX0y5fOKJzdMrtVcn9uuFidpu5viLu4FTfOjrx6O4MC/F/HydlVftoS
-tI2tYe55brFYFepbByqvwptGGIoP5VPivZQB9p559DRV8DrDJXysH/3z4pdXzgqx
-te3SqiT+iVQM3RyKCGgYE6Lhu2HqflcsC8klYasBUgqusMAYmUTJYK8skFaPQJGH
-2BMCAwEAAaOBuzCBuDATBgNVHSUEDDAKBggrBgEFBQcDAjAMBgNVHRMBAf8EAjAA
-MB0GA1UdDgQWBBR6KODaGLR50ubUFwCeb5lp89zxzjAfBgNVHSMEGDAWgBT2V+XX
-VnAarstbUHhH5ghkeISzdjBTBgNVHR8ETDBKMEigRqBEhkJodHRwOi8vY3JsLmNs
-b3VkZmxhcmUuY29tL2Q4NmUwY2RmLWE1MDctNGFjYi1iNzkwLTE4NjhlN2I4MDc5
-ZS5jcmwwDQYJKoZIhvcNAQELBQADggEBAJm7cDv/r0EU7t9VmTcF/5QVrfvth8c6
-eWt5GB06A+ncie7v23q4ICwhwWagKrM+/PSyUdDJpne9VHU4XueP6dU0lBQ3WlgG
-YelMw3WgGNhhFTdURsF1oKkVM1UdasWXrTLY1kinqCFEd3hx2OmEpMDufoZFYt0s
-bP66sMynmyDYPG1svUZM4y4F1e1lSxS4+UgeCDsCgYN2Av51VBkPHudS50Atr98N
-7cnvUOWpGW5guC2qC7OHAb1WO+68naMEii/aK4PKhQ8MoGIa8te44zwPU0Y35bMH
-+GV3UK+VySIphAySjc5Joco2VWZUONGqMMVgFpbZQJZ1uojNb+fN210=
------END CERTIFICATE-----
 EOF
   cat >config.yml <<EOF
 Log:
@@ -244,15 +187,15 @@ Nodes:
           Dest: 80
           ProxyProtocolVer: 0 
       CertConfig:
-        CertMode: file
+        CertMode: dns 
         CertDomain: "$CertDomain443" 
-        CertFile: ./crt.crt
-        KeyFile: ./key.key
-        Provider: alidns 
+        CertFile: ./cert/node1.test.com.cert 
+        KeyFile: ./cert/node1.test.com.key
+        Provider: cloudflare 
         Email: test@me.com
-        DNSEnv: 
-          ALICLOUD_ACCESS_KEY: aaa
-          ALICLOUD_SECRET_KEY: bbb
+        DNSEnv: # DNS ENV option used by DNS provider
+          CLOUDFLARE_EMAIL: anhduynguyenblk5@gmail.com
+          CLOUDFLARE_API_KEY: 5d69e0fdeadad6d8d9201b5300ba27875cfaf
 EOF
 
 }
@@ -261,7 +204,7 @@ EOF
 install_docker() {
   echo -e "Bắt đầu cài đặt DOCKER "
  sudo apt-get update
- sudo apt-get install \
+sudo apt-get install \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -275,13 +218,13 @@ sudo add-apt-repository \
 sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 systemctl start docker
 systemctl enable docker
-  echo -e "bắt đầu cài đặt Docker Compose "
+  echo -e "Bắt đầu cài đặt Docker Compose "
 curl -fsSL https://get.docker.com | bash -s docker
 curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
-  echo "khởi động Docker "
+  echo "Khởi động Docker "
   service docker start
-  echo "khởi động Docker-Compose "
+  echo "Khởi động Docker-Compose "
   docker-compose up -d
   echo
   echo -e "Đã hoàn tất cài đặt phụ trợ ！"
@@ -344,14 +287,14 @@ Update_xrayr() {
 #show last 100 line log
 
 logs_xrayr() {
-  echo "nhật ký chạy sẽ được hiển thị"
+  echo "Nhật ký chạy sẽ được hiển thị"
   docker-compose logs --tail 100
 }
 
 # Update config
 UpdateConfig_xrayr() {
   cd ${cur_dir}
-  echo "đóng dịch vụ hiện tại"
+  echo "Đóng dịch vụ hiện tại"
   docker-compose down
   pre_install_docker_compose
   config_docker
@@ -370,7 +313,7 @@ delete_xrayr() {
   docker-compose down
   cd ~
   rm -Rf ${cur_dir}
-  echo "đã xóa thành công!"
+  echo "Đã xóa thành công!"
 }
 # Install xrayr
 Install_xrayr() {
@@ -382,8 +325,7 @@ Install_xrayr() {
 # Initialization step
 clear
 while true; do
-  echo "--- DOCKER 443 được thực hiện bởi FAST4G ---"
-  echo "Vui lòng nhập một số để Thực Hiện Câu Lệnh: "
+  echo "Vui lòng nhập một số để Thực Hiện Câu Lệnh:"
   for ((i = 1; i <= ${#operation[@]}; i++)); do
     hint="${operation[$i - 1]}"
     echo -e "${green}${i}${plain}) ${hint}"
