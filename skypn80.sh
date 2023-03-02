@@ -108,7 +108,7 @@ pre_install_docker_compose() {
     echo -e "--- Docker port 80 SKYPN.FUN ---"
     echo -e "Vui lòng nhập ID node và Domain"
 
-    read -p "Nhập Node ID port 80:" node_80
+    read -p "Nhập Node ID port 80: " node_80
     echo -e "Node 80 là: ${node_80}"
 
     read -p "Nhập subdomain: " CertDomain
