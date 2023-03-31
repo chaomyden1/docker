@@ -158,7 +158,7 @@ Nodes:
   -
     PanelType: "V2board" 
     ApiConfig:
-      ApiHost: "https://skypn.fun"
+      ApiHost: "https://api-khongaibiet.skypn.fun"
       ApiKey: "adminskypn9810@skypn.fun"
       NodeID: $node_80
       NodeType: V2ray 
