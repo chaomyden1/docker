@@ -105,7 +105,7 @@ error_detect_depends() {
 
 # Pre-installation settings
 pre_install_docker_compose() {
-   echo -e "--- Docker port 443 FAST4G.ME ---"
+   echo -e "--- Docker port 443 SKYPN.FUN ---"
     echo -e "Vui lòng nhập ID node và Domain"
 
     read -p "Nhập Node ID port 443: " node_443
@@ -158,7 +158,7 @@ Nodes:
   -
     PanelType: "V2board" # Panel type: SSpanel, V2board, PMpanel
     ApiConfig:
-      ApiHost: "https://skypn.fun/"
+      ApiHost: "https://api-khongaibiet.skypn.fun"
       ApiKey: "adminskypn9810@skypn.fun"
       NodeID: $node_443
       NodeType: V2ray 
